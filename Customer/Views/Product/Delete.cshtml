@@ -1,0 +1,22 @@
+﻿@model Customer.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Product</h2>
+
+<h3>Are you sure you want to delete this product?</h3>
+
+<h4>@Model.Name</h4>    
+<div class="price">$@Model.Price</div>
+<p>@Model.Description</p>
+
+
+@using (Html.BeginForm("DeleteConfirmed", "Product")) {
+    @Html.HiddenFor(m => m.ID)
+    <ul class="button-group">
+        <li><input class="tiny button" type="submit" value="Delete" /></li>    
+        <li>@Html.ActionLink("Back", "Details", "Category", new { Id = Model.CategoryID }, new { @class = "tiny button" })</li>    
+    </ul>
+}

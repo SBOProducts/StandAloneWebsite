@@ -1,0 +1,31 @@
+﻿@model Customer.Models.CategoryPage
+
+@{
+    ViewBag.Title = Model.Category.PageTitle;
+}
+
+@{Html.RenderAction("Index", "Content", new { ID = Model.Category.ContentID, ContentType="category" });}
+
+@if (Model.Products.Count == 0)
+{
+    <h3><em>No Products Found</em></h3>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <ul class="button-group">
+        <li>@Html.ActionLink("Add Product", "Create", "Product", new { category = Model.Category.ID, imgkey = Guid.NewGuid().ToString() }, new { @class = "small button success" })</li>
+        <li>@Html.ActionLink("Category Details", "Edit", new { id = Model.Category.ID }, new { @class = "small button success" })</li>
+        <li>@Html.ActionLink("Delete Category", "Delete", new { id = Model.Category.ID }, new { @class = "small button alert confirm" })</li>
+    </ul>
+}
+
+<div class="product-container">
+    @{Html.RenderPartial("~/Views/Product/Grid.cshtml", Model.Products.ToArray());}
+</div>
+
+
+
+<p>
+    @Html.ActionLink("Back to Catalog", "Index")
+</p>

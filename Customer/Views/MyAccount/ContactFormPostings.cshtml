@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Customer.Models.ContactForm>
+
+@foreach (var form in Model)
+{
+    <div>
+        <h3><a href="mailto:@form.EmailAddress">@form.From</a></h3>
+        <p>
+            <strong>Sent: </strong> @form.Sent.ToString()<br />
+            <strong>Subject: </strong> @form.Subject
+        </p>
+        <p>
+            @form.Message
+        </p>
+        <p>
+            @Html.ActionLink("Delete", "DeletePosting", "MyAccount", new { Id = form.Id }, null)
+        </p>
+    </div>
+    <hr />
+}
+

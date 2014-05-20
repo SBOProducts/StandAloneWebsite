@@ -1,0 +1,56 @@
+﻿@using Customer.Helpers
+@model Customer.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Product</h2>
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.CategoryID)
+        @Html.HiddenFor(model => model.Created)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+
+
+        @Html.Partial("~/Views/Content/ImageManagerPanel.cshtml", new Customer.Models.ImageUploadModel() { ImageFolder = Model.ImageFolder, ImageSettings = "ProductImages" })
+
+    
+        <ul class="button-group">
+            <li><input type="submit" value="Save" class="small button" /></li>
+            <li>@Html.ActionButton("Cancel", "Details", "Product", new { ID = Model.ID }, new { @class = "small button" })</li>
+        </ul>
+}
+

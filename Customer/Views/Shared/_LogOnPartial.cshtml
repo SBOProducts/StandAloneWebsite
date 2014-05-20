@@ -1,0 +1,7 @@
+﻿@if(Request.IsAuthenticated) {
+    @Html.ActionLink("Log Off", "LogOff", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+}
+else
+{
+    @Html.ActionLink("Log On", "LogOn", "Account", new { returnUrl = Request.Url.PathAndQuery }, null)
+}

@@ -1,0 +1,34 @@
+﻿@using Customer.Helpers
+@model IEnumerable<Customer.Models.CategoryPage>
+
+
+@foreach (var preview in Model)
+{
+    Customer.Models.Product product = preview.Products.FirstOrDefault();
+    
+    <div class="row" style="cursor:pointer;" onclick="javascript:location.href='@Url.Content("~/Category/Details/")@preview.Category.ID'">
+        <div class="large-4 columns">
+            @if (product == null)
+            {
+            <img src="@Url.Content("~/Files/ImageNotFound-300.jpg")" alt="@preview.Category.MenuName" />
+            } else {
+            <img src="@Url.Content(product.FirstImage().GetVirtualPath(300))" alt="@preview.Category.MenuName" />
+            }
+        </div>
+        <div class="large-8 columns">
+            @{Html.RenderAction("Display", "Content", new { ID = preview.Category.ContentID.ToString() });}
+        </div>
+    </div>
+    <hr />
+}
+
+@if (Model.Count() == 0)
+{
+<h3>
+    <em>No Categories Found</em>
+</h3>
+}
+
+
+    
+

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+
+
+@{Html.RenderAction("Index", "Content", new { ID = "754b8d6c-09b9-4027-9f68-42350549aae6", ContentType = "default" });}
+
+<div class="row">
+
+    <div class="large-6 columns">
+    
+        @Html.Partial("~/Views/Content/ContactForm.cshtml", new Customer.Models.ContactForm())
+    
+    </div>
+    
+
+</div>

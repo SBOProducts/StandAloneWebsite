@@ -1,0 +1,366 @@
+﻿ p 
+ {
+     margin-bottom:1.25em;
+ }
+
+
+footer 
+{
+    background-color:#0275AB;
+    color:#fff;
+    padding:10px;
+}
+
+footer * {color:#fff; }
+
+.copyright { padding-top:15px; }
+
+/* Product styles */
+.price 
+{
+    font-weight: bold;
+    color: #800000;
+}
+
+
+
+/* contains a set of products */
+.product-container
+{
+    margin-bottom:15px;
+}
+
+.product-grid 
+{
+    
+}
+
+
+.product-grid ul.pricing-table
+{
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    -webkit-box-shadow: 5px 5px 5px #ccc;
+    box-shadow: 5px 5px 5px #ccc;
+    padding-bottom:0;
+}
+
+.product-grid .caption 
+{
+    font-size:0.8em;
+    white-space: nowrap;
+    text-wrap: none;
+    overflow:hidden;
+}
+
+/*
+.ImageManagerPanel { background-color:#eee; border:1px solid #ccc; margin-bottom:10px; }
+
+.ImageManagerPanel .FileDropArea  { display:inline-block; width:100px; height:100px; padding:5px; text-align:center; background-color:#ccc; font-size:0.8em;}
+
+img.thumbnail { border:1px solid #ccc; margin:3px; }
+*/
+
+/* Image Manager Panel Styles */
+.ImageManagerPanel { background-color:#eee; border:1px solid #ccc; margin-bottom:10px; padding:5px; }
+
+.ImageManagerPanel #previews  
+{
+    background: #ccc url(images/FileDropArea.gif) no-repeat 5px 5px;
+    min-height: 115px; 
+    padding:5px;
+    margin-bottom:10px;
+}
+
+.ImageManagerPanel #previews  img { border:1px solid #ccc; cursor: pointer; }
+
+.ImageManagerPanel #previews img:hover { border-color: #666; }
+
+.ImageManagerPanel #previews img.selected { border-color: Red !Important; }
+
+
+
+
+/* Notifications */
+#Notifications
+{
+    position:fixed;
+    bottom:0;
+    
+}
+
+#Notifications .message 
+{
+    
+    padding:10px;
+    font-weight:bold;
+    color:#fff;
+}
+
+#Notifications .message.success 
+{
+    background-color:Green;
+}
+
+#Notifications .message.error 
+{
+    background-color:Red;
+}
+
+
+#AdminPanel 
+{
+    margin:0;
+    width:100%;
+    background-color:#555;
+    padding:0px;
+}
+
+#AdminPanel a
+{
+    margin:5px;
+}
+
+
+
+
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+
+
+select {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+    font-weight:bold;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.text-box {
+    width: 30em;
+}
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}
+
+
+.editor-label
+{
+    font-weight:bold;
+}
+
+
+.hidden {display:none;}
+
+
+/* Image Navigator
+----------------------------*/
+
+.ImageNavigator
+{
+	border:1px solid #ccc;
+	margin-bottom:10px;
+	
+}
+
+.ImageNavigator .ImageCollection
+{
+	padding:0px;
+	margin:0;
+}
+
+.ImageNavigator .ImageCollection img
+{
+	padding:10px;
+}
+.ImageNavigator .Navigation
+{
+	padding:10px;
+}
+.ImageNavigator .Navigation .Back
+{
+	float:left;
+}
+.ImageNavigator .Navigation .Caption
+{
+	text-align:center;	
+	margin-top:0px;
+}
+.ImageNavigator .Navigation .Next
+{
+	float:right;
+}
+
+
+
+/* Image Display
+----------------------------*/
+.ImageDisplay  
+{
+	border-top:1px solid #eee;
+}
+.ImageDisplay .ImageContainer 
+{
+	 border-bottom:1px solid #eee; 
+}
+.ImageDisplay .ImageContainer img {  }
+.ImageDisplay .Caption
+{
+	text-align:center;
+	padding:5px;
+}
+.Magnify, .ImageDisplay .Magnify
+{
+	background: url('/content/images/48px-Crystal_Clear_action_viewmag+.png') no-repeat;
+	width:24px;
+	height:24px;
+	margin:-25px 0 0 10px;
+	cursor:pointer;
+}
+
+
+#SiteLogos
+{
+
+}
+
+    #SiteLogos #CurrentLogo
+    {
+        margin-bottom:10px;
+        text-align:center;
+    }
+
+        #SiteLogos #CurrentLogo img
+        {
+            border:1px solid #000;
+            -moz-box-shadow: 5px 5px 5px #ccc;
+            -webkit-box-shadow: 5px 5px 5px #ccc;
+            box-shadow: 5px 5px 5px #ccc;
+            min-height:100px;
+            min-width:100px;
+        }
+
+
+    #SiteLogos #AvailableLogos
+    {
+        background-color:#eee;
+        padding:5px;
+        border:1px solid #ccc;
+        border-radius: 5px;
+    }
+
+        #SiteLogos #AvailableLogos ul
+        {
+            padding:10px;
+        }
+
+            #SiteLogos #AvailableLogos ul li
+            {
+                display:inline-block;
+                list-style: none;
+            }
+
+                #SiteLogos #AvailableLogos ul li img
+                {
+                    max-height:200px;
+                    max-width:200px;
+                    border:2px solid #000;
+                    -moz-box-shadow: 5px 5px 5px #ccc;
+                    -webkit-box-shadow: 5px 5px 5px #ccc;
+                    box-shadow: 5px 5px 5px #ccc;
+                    cursor: pointer;
+                }
+
+                    #SiteLogos #AvailableLogos ul li img.selected
+                    {
+                        border:2px dashed Red;
+                    }
+
+
+#ProgressIndicator 
+{
+    display:none;
+}
+
+    #ProgressIndicator #Curtain
+    {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background: #000 url('images/admin-bg.jpg') no-repeat fixed 100% 100%;
+        opacity:0.25;
+    }
+
+    #ProgressIndicator img  
+    {
+        position:fixed;
+        top:35%;
+        left:35%;
+        background-color:#fff;
+        padding:10%;
+        border:10px solid #ccc;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }

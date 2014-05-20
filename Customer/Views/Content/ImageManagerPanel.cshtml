@@ -1,0 +1,34 @@
+﻿@model Customer.Models.ImageUploadModel
+
+<input type="hidden" name="ImageFolder" value="@Model.ImageFolder" />
+
+<div class="ImageManagerPanel">
+
+    <div id="previews" data-file-drop="['image/jpeg', 'image/png', 'image/gif', 'image/bmp']" data-image-settings="@Model.ImageSettings" data-sort-url="@Url.Content("~/Content/SortFiles/")@Model.ImageFolder.ToString()" data-delete-url="@Url.Content("~/Content/DeleteFiles/")@Model.ImageFolder.ToString()" data-url="@Url.Content("~/Content/UploadFiles/")@Model.ImageFolder.ToString()" data-callback="ImageManagerUpload">
+        @foreach (Customer.Models.SiteImage image in Model.Images())
+        {
+            <img class="thumbnail" data-id="@image.ID" src="@Url.Content(image.GetVirtualPath(100))" alt="@image.Name" />
+        }
+    </div>
+
+    <button id="DeleteImages" class="small button">Delete</button>
+
+</div>
+
+
+<script src="@Url.Content("~/Scripts/Site/products.js")"></script>
+
+<script type="text/javascript">
+
+    function ImageManagerUpload(event, file, response) {
+        
+        var src = response[0];
+        var previews = $('#previews')
+        var img = $("<img/>");
+        img.attr("src", src);
+        img.attr("alt", file.name);
+        img.attr("class", "thumbnail");
+        previews.append(img);
+    }
+</script>
+

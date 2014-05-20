@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Customer.Models.Product>
+
+@foreach (var product in Model)
+{
+    <div class="row">
+        <div class="large-5 columns">
+            @Html.Partial("~/Views/Content/ImageNavigator.cshtml", product.ImageFolder)
+        </div>
+        <div class="large-7 columns">
+            <h4>@product.Name</h4>
+            <div class="price">
+                $@product.Price.ToString("f2")</div>
+            <p class="summary">@product.Description</p>
+            <ul class="button-group">
+                <li>@Html.ActionLink("details", "Details", "Product", new { Id = product.ID }, new { @class = "tiny button" })</li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("edit", "Edit", "Product", new { Id = product.ID }, new { @class = "tiny button" })</li>
+                    <li>@Html.ActionLink("delete", "Delete", "Product", new { Id = product.ID }, new { @class = "tiny button alert confirm" })</li>
+                }
+            </ul>
+        </div>
+    </div>
+}

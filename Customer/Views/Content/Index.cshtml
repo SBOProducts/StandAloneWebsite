@@ -1,0 +1,43 @@
+﻿@model Customer.Models.HtmlContent
+
+<div class="Container">
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="HtmlContent" id="HtmlEditor-@Model.ID" data-file-drop="[]" data-image-settings="HtmlContent" data-url="@Url.Content("~/Content/UploadFiles/")@Model.ID" contenteditable="true" data-callback="CKEditorUpload" >
+        @Html.Raw(Model.HTML)
+    </div>
+    
+    <script type="text/javascript">
+        CKEDITOR.disableAutoInline = true;
+        var div = $("#HtmlEditor-@Model.ID")[0];
+        jQuery.data(div, "instance", CKEDITOR.inline('HtmlEditor-@Model.ID'));
+
+        function CKEditorUpload(event, file, response) {
+
+            var html;
+            switch (file.type) {
+                case "image/jpeg": case "image/gif": case "image/png": case "image/bmp": case "image/x-windows-bmp":
+                    html = "<img src='" + response + "'/>";
+                    break;
+                default:
+                    html = "<a target='_blank' href='" + response + "'>" + file.name + "</a>";
+                    break;
+            }
+
+            // insert file.name into CKEditor document position
+            var div = jQuery(event.target)[0];
+            var instance = jQuery.data(div, "instance").insertHtml(html);
+        }
+
+    </script>
+}
+else
+{
+    @Html.Raw(Model.HTML)
+}
+
+</div>
+
+
+

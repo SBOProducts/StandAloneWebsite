@@ -1,0 +1,48 @@
+﻿@model Customer.Models.MyAccount
+
+@using (Html.BeginForm("Edit", "MyAccount", FormMethod.Post, new { @class = "data-ajax-form" }))
+{
+    @Html.ValidationSummary(true)
+
+
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.BusinessName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.BusinessName)
+        @Html.ValidationMessageFor(model => model.BusinessName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.EmailAddress)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.EmailAddress)
+        @Html.ValidationMessageFor(model => model.EmailAddress)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.SiteScripts)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.SiteScripts)
+        @Html.ValidationMessageFor(model => model.SiteScripts)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.SiteStyle)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(model => model.SiteStyle)
+        @Html.ValidationMessageFor(model => model.SiteStyle)
+    </div>
+
+    <input type="hidden" id="Message" value="@ViewBag.Message" />
+    
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+}
+

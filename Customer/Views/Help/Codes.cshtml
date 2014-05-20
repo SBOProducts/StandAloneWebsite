@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Customer.Models.AccountRegistrationCode>
+@{
+    ViewBag.Title = "Codes";
+}
+
+<h2>Codes</h2>
+
+<ul>
+@foreach (var code in Model)
+{
+    <li>@code.ID - @code.Used.ToString()</li>
+}
+</ul>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Customer.Models.Category>
+@using Customer.Helpers    
+
+
+           
+@foreach (var category in Model)
+{
+    if (!category.IsPrivate || User.Identity.IsAuthenticated)
+    {
+        if (ViewBag.SelectedCategory == category.ID.ToString())
+        {
+            <li id="@category.ID" data-seq="@category.KeyWords" class="active">@Html.ActionLink(category.MenuName, "Details", "Category", new { Id = category.ID }, null)</li>    
+        }
+        else
+        {
+            <li id="@category.ID" data-seq="@category.KeyWords">@Html.ActionLink(category.MenuName, "Details", "Category", new { Id = category.ID }, null)</li>    
+        }
+    }
+}
+
+

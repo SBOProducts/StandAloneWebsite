@@ -1,0 +1,176 @@
+﻿@model Customer.Models.MyAccount
+@{
+    ViewBag.Title = "My Account";
+}
+
+<h2>My Account</h2>
+
+<div class="tabs" style="font-size:0.8em;">
+    <ul>
+        <li><a href="#info">Account Info</a></li>
+        <li><a href="#SiteLogos">Logos</a></li>
+        <li><a href="#ContactForms">Contact Forms</a></li>
+    </ul>
+
+    <div id="info">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BusinessName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BusinessName)
+                @Html.ValidationMessageFor(model => model.BusinessName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmailAddress)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmailAddress)
+                @Html.ValidationMessageFor(model => model.EmailAddress)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SiteScripts)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.SiteScripts)
+                @Html.ValidationMessageFor(model => model.SiteScripts)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SiteStyle)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.SiteStyle)
+                @Html.ValidationMessageFor(model => model.SiteStyle)
+            </div>
+
+            <input type="hidden" id="Message" value="@ViewBag.Message" />
+    
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        }
+    </div>
+    <div id="SiteLogos">
+        <p>
+            <em>upload a new logo by dropping it on the image below</em>
+        </p>
+        <div id="CurrentLogo">
+            <img src="@Url.Content(Model.LogoImage)" data-file-drop="['image/jpeg', 'image/png', 'image/gif', 'image/bmp']" data-image-settings="" data-url="@Url.Content("~/Content/UploadLogo/")" data-callback="LogoUploaded">
+        </div>
+        <div id="AvailableLogos">
+            <strong>Available Logos</strong>
+            <ul>
+                @foreach (string url in Model.AvailableLogoUrls)
+                {
+                    <li><img src="@Url.Content(url)" alt="@Path.GetFileName(url)" /></li>
+                }
+            </ul>
+        </div>
+        <div id="LogoActions">
+            <button id="UseCurrent">Use This Logo</button>
+            <button id="DeleteCurrent">Delete</button>
+        </div>
+
+    </div>
+    <div id="ContactForms">
+        @{Html.RenderAction("ContactFormPostings", "MyAccount");}
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function LogoUploaded(event, file, url) {
+        var newImage = jQuery("<img/>");
+        newImage.attr("src", url);
+        var li = jQuery("<li/>");
+        li.append(newImage);
+        jQuery("#AvailableLogos ul").append(li);
+        newImage.click(ImageClicked);
+        newImage.click();
+    }
+
+    function ImageClicked() {
+        $("#AvailableLogos ul li img.selected").removeClass("selected");
+        $(this).addClass("selected");
+        var url = $(this).attr("src");
+        $("#CurrentLogo img").attr("src", url);
+        $("#WebsiteLogo").attr("src", url);
+        if (url.indexOf("DefaultLogo.png") > 0)
+            $("#DeleteCurrent").attr("disabled", "disabled");
+        else
+            $("#DeleteCurrent").removeAttr("disabled");
+    }
+
+
+    (function ($) {
+        $(document).ready(function () {
+
+            // add click handler to image and trigger on the current logo
+            $("#AvailableLogos ul li img").click(ImageClicked);
+            var currentSrc = $("#WebsiteLogo").attr("src");
+            $("#AvailableLogos ul li img[src='" + currentSrc + "']").click();
+
+            // delete a logo
+            $("#DeleteCurrent").click(function () {
+
+                var currentSrc = $("#WebsiteLogo").attr("src");
+
+                // prevent deleting the default
+                if (currentSrc.indexOf("DefaultLogo.png") > 0) {
+                    alert("you can not delete the default logo");
+                    return;
+                }
+
+                // send the delete to the server
+                $.ajax({
+                    url: "/Content/DeleteLogo",
+                    data: { src: currentSrc },
+                    type: "POST",
+                    error: function (data) {
+                        alert("error");
+                    }, success: function (data) {
+                        if (data == "OK") {
+                            $("#AvailableLogos img.selected").remove();
+                            $("#AvailableLogos img:first").click();
+                            Notify("The logo has been deleted", true);
+                        } else {
+                            Notify("An error occurred while attempting to delete the logo", false);
+                        }
+                    }
+                });
+            });
+
+            $("#UseCurrent").click(function () {
+                var currentSrc = $("#WebsiteLogo").attr("src");
+                $.ajax({
+                    url: "/Content/UseLogo",
+                    data: { src: currentSrc },
+                    type: "POST",
+                    error: function (data) {
+                        alert("error");
+                    }, success: function (data) {
+                        if (data == "OK") {
+                            Notify("The logo has been changed", true);
+                        } else {
+                            Notify("An error occurred", false);
+                        }
+                    }
+                });
+            });
+
+        });
+
+       
+        
+
+    })(jQuery);
+</script>

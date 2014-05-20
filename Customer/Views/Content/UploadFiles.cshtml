@@ -1,0 +1,110 @@
+﻿@model int
+           
+@{
+    ViewBag.Title = "UploadFiles";
+}
+
+
+ 
+
+<div id='dropbox' data-url="@Url.Content("~/Content/UploadFiles/")@Model">
+    <span class="message">Drag and drop image files here to add them to this product.</span>
+    <div class="progress"></div>
+</div>
+
+
+<script src="@Url.Content("~/Scripts/jquery.filedrop.js")"></script>
+
+<script type="text/javascript">
+    (function ($) {
+
+        var dropbox = $('#dropbox'),
+        message = $('.message', dropbox);
+
+        dropbox.filedrop({
+            url: dropbox.attr("data-url"),
+            paramname: 'files',
+            maxFiles: 10,
+            maxFileSize: 4,
+            allowedfiletypes: [], // ['image/jpeg', 'image/png', 'image/gif'],
+            uploadFinished: function (i, file, response) {
+                dropbox.trigger("upload-complete");
+            },
+
+            error: function (err, file) {
+                switch (err) {
+                    case 'BrowserNotSupported':
+                        alert('Your browser does not support HTML5 file uploads!');
+                        break;
+                    case 'TooManyFiles':
+                        alert('Too many files! Please select 10 at most!');
+                        break;
+                    case 'FileTooLarge':
+                        alert(file.name + ' is too large! Please upload files up to 4mb');
+                        break;
+                    case 'FileTypeNotAllowed':
+                        alert(file.name + ' is not supported. You can only upload files with .gif .png and .jpg extension');
+                        break;
+                    default:
+                        alert(err);
+                }
+            },
+
+            uploadStarted: function (i, file, len) {
+                //createImage(file);
+            },
+
+            progressUpdated: function (i, file, progress) {
+                //$.data(file).find('.progress').width(progress);
+                //dropbox.find(".progress").width(progress);
+            }
+
+        });
+        /*
+        var template = '<div class="preview">' +
+            '<span class="imageHolder">' +
+                '<img />' +
+                '<span class="uploaded"></span>' +
+            '</span>' +
+            '<div class="progressHolder">' +
+                '<div class="progress"></div>' +
+            '</div>' +
+                      '<div class="remove">Remove</div>' +
+             '</div>';
+
+        function createImage(file) {
+            var preview = $(template), image = $('img', preview);
+
+            var reader = new FileReader();
+
+            image.width = 100;
+            image.height = 100;
+
+            reader.onload = function (e) {
+
+                // e.target.result holds the DataURL which
+                // can be used as a source of the image:
+
+                image.attr('src', e.target.result);
+            };
+
+            // Reading the file as a DataURL. When finished,
+            // this will trigger the onload function above:
+            reader.readAsDataURL(file);
+
+            message.hide();
+            preview.appendTo(dropbox);
+
+            // Associating a preview container
+            // with the file, using jQuery's $.data():
+
+            $.data(file, preview);
+        }
+
+        function showMessage(msg) {
+            message.html(msg);
+        }
+        */
+    })(jQuery);
+
+</script>

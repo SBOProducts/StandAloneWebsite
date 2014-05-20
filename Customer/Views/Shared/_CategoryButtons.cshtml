@@ -1,0 +1,6 @@
+﻿@using Customer.Helpers
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionButton("Add New Category", "Create", "Category", null, new { @class = "tiny button success" })
+}

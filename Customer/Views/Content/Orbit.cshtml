@@ -1,0 +1,28 @@
+﻿@model Customer.Models.OrbitSettings
+
+
+
+@if (Model.Images().Count > 1)
+{
+    
+    <ul data-orbit data-options="timer_speed:4000; bullets:false;">
+    @foreach (Customer.Models.SiteImage image in Model.Images())
+    {
+        <li>
+            <img src="@Url.Content(image.GetVirtualPath(Model.Size))" alt="@image.Name" />
+            <div class="orbit-caption show-for-medium-up">@image.Name</div>
+        </li>
+    }
+    </ul>
+    
+}
+else
+{
+    foreach (Customer.Models.SiteImage image in Model.Images())
+    {
+        <img src="@Url.Content(image.GetVirtualPath(Model.Size))" alt="@image.Name" />
+    }
+}
+
+
+

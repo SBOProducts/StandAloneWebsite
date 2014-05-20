@@ -1,0 +1,13 @@
+﻿@model Customer.Models.Category
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{Html.RenderAction("Index", "Content", new { ID = "55dda5f6-1c4e-4c87-979e-b80415d79d9e", ContentType="inventory" });}
+
+@Html.Partial("_CategoryButtons")
+
+<ul class="side-nav">
+    @{Html.RenderAction("CategoryPreviews", "Category");}
+</ul>

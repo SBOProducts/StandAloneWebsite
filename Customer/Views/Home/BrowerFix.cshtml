@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Customer.Models.Category>
+@{
+    ViewBag.Title = "BrowerFix";
+}
+
+<h2>BrowerFix</h2>
+<ul>
+
+@foreach (var cat in Model)
+{
+    <li>@cat.ContentID</li>
+}
+</ul>

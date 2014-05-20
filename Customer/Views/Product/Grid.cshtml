@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Customer.Models.Product>
+@using Customer.Helpers
+
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <ul class="large-block-grid-4 small-block-grid-1 product-grid">
+        @foreach (var product in Model)
+        {   
+            <li>
+                <ul class="pricing-table">
+                    <li class="bullet-item">
+                        <a href="/Product/Details/@product.ID">
+                            <img src="@Url.Content(product.FirstImage().GetVirtualPath(100))" />
+                        </a>
+                    </li>
+                    <li class="bullet-item">
+                    <div class="caption" title="@product.Name">@Html.CropString(product.Name, 20)</div>
+                    @Html.ActionLink("details", "Details", "Product", new { Id = product.ID }, null)
+                    </li>
+                </ul>
+            </li>
+        }
+        </ul>
+    </div>
+</div>
+

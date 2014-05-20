@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<content>
+  <address>
+    <h5>Company Name</h5>
+    <p>
+      3550 Easy Street East<br/>
+      Your Town, ST 12345
+    </p>
+    <p>
+      Phone: (800) 987-6543<br/>
+      Fax: (800) 567-1234
+    </p>
+  </address>
+  <category>
+    <h2>Category Page</h2>
+    <p>
+      <a href="/Help/AddProducts">Click here</a> to learn how to add products to your category.
+    </p>
+  </category>
+  <default>
+    <h2>New Web Page</h2>
+    <p>
+      <a href="/Help/ModifyContent">Click here</a> to learn how to modify the contents of this page.
+    </p>
+  </default>
+  <empty>
+    <p>
+      
+    </p>
+  </empty>
+  <hours>
+    <h5>Hours</h5>
+    <p>
+      Monday - Friday<br />
+      8am - 5pm
+    </p>
+    <h6>Saturday</h6>
+    <p>
+      by appointment
+    </p>
+  </hours>
+  <inventory>
+    <h2>Inventory Page</h2>
+    <p>
+      <a href="/Help/AddProducts">Click here</a> to see how you can create categories to organize products on your website.
+    </p>
+  </inventory>
+  <product>
+    <h2>New Product Page</h2>
+    <p>
+      <a href="/Help/ModifyContent">Click here</a> to learn how to manage product pages.
+    </p>
+  </product>
+</content>

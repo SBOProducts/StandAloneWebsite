@@ -1,0 +1,38 @@
+﻿@using Customer.Models
+@model IEnumerable<Customer.Models.SiteImage>
+
+
+<div class="ImageNavigator">
+    <div class="ImageCollection">
+        @foreach(SiteImage image in Model){
+        <div caption="@image.Name" class="ImageDisplay @if(image != Model.First()){<text>hidden</text>}">
+            <div class="ImageContainer">
+                <img alt="@image.Name" src="@Url.Content(image.GetVirtualPath(600))">
+            </div>
+                
+            <a style="float:left;" target="_blank" href="@Url.Content("~/Content/Orbit/?ImageFolder=")@image.ImageFolder.ToString()&size=1000"><img src="@Url.Content("~/content/images/48px-Crystal_Clear_action_viewmag+.png")" alt="View Larger Images" /></a>
+                
+            <div class="Caption">
+                @image.Name
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="Navigation">
+        <div onclick="javascript:ImageNavigator.Back(this); return false;" class="Back small button secondary">
+            Back
+        </div>
+        <div onclick="javascript:ImageNavigator.Next(this); return false;" class="Next small button secondary">
+            Next
+        </div>
+        <p class="Caption">
+            1 of @Model.Count()
+        </p>
+        <div style="clear: both;">
+        </div>
+    </div>
+
+</div>
+
+

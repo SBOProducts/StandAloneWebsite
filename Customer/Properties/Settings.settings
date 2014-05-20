@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Customer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BusinessName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Company Name</Value>
+    </Setting>
+    <Setting Name="EmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">my@email.com</Value>
+    </Setting>
+    <Setting Name="Javascripts" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Styles" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogoImage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Content/Images/Logos/DefaultLogo.png</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

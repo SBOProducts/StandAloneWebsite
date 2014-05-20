@@ -1,0 +1,30 @@
+﻿@model Customer.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+    string _description = string.IsNullOrEmpty(Model.Description) ? "" : Model.Description;
+}
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <h4>@Model.Name</h4>    
+        <div class="price">$@Model.Price.ToString("#,##0.00")</div>
+        <p>@Html.Raw(_description.Replace("\n", "<br/>"))</p>
+        <ul class="button-group">
+            <li>@Html.ActionLink("Back", "Details", "Category", new { Id = Model.CategoryID }, new { @class = "tiny button" })</li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("edit", "Edit", "Product", new { Id = Model.ID }, new { @class = "tiny button" })</li>
+                <li>@Html.ActionLink("delete", "Delete", "Product", new { Id = Model.ID }, new { @class = "tiny button alert confirm" })</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="row product-detail">
+    <div class="large-12 columns">
+        @Html.Partial("~/Views/Content/Orbit.cshtml", new Customer.Models.OrbitSettings() { ImageFolder = Model.ImageFolder, Size=600 })
+    </div>
+</div>
+<p>&nbsp;</p>
