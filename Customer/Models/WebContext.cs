@@ -10,6 +10,7 @@ namespace Customer.Models
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductVideo> ProductVideos { get; set; }
         public DbSet<HtmlContent> HtmlContent { get; set; }
         public DbSet<ImageSetting> ImageSettings { get; set; }
         public DbSet<SiteImage> SiteImages { get; set; }

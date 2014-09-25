@@ -1,4 +1,4 @@
-﻿@model Customer.Models.Product
+﻿@model Customer.ViewModels.ProductVM
 @using Customer.Helpers
 
 @{
@@ -44,6 +44,20 @@
         </div>
         <div>
             @Html.Partial("~/Views/Content/ImageManagerPanel.cshtml", new Customer.Models.ImageUploadModel() { ImageFolder= new Guid(Request["imgkey"]), ImageSettings = "ProductImages" })
+        </div>
+        <br />
+        <h3><img src="@Url.Content("~/Content/Images/YouTube.png")" style="height:32px; margin-right:10px; margin-bottom:-5px;" alt="YouTube Videos" />Add Videos</h3>
+        <p style="font-size:0.9em;">To make up to 3 YouTube videos appear below this product simply paste links from www.YouTube.com into to the boxes below. <em>An Example link would be http://www.youtube.com/watch?v=nkLrHZ5z-RI</em></p>
+        <div>
+            @Html.TextBoxFor(m => m.Video1, new { placeholder = "YouTube Video Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video1)<br />
+
+            @Html.TextBoxFor(m => m.Video2, new { placeholder = "YouTube Video Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video2)<br />
+
+            @Html.TextBoxFor(m => m.Video3, new { placeholder = "YouTube Video Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video3)<br />
+            
         </div>
     
         <p>

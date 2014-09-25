@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201409250327517_AddCategorySequence.Designer.cs">
       <DependentUpon>201409250327517_AddCategorySequence.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409250405354_AddProductVideosTable.cs" />
+    <Compile Include="Migrations\201409250405354_AddProductVideosTable.Designer.cs">
+      <DependentUpon>201409250405354_AddProductVideosTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\InventoryModels.cs" />
@@ -123,6 +127,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ProductVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\WebContext.sdf" />
@@ -276,6 +281,7 @@
     <Content Include="Content\Images\Logos\Brower.png" />
     <Content Include="Content\Images\Logos\Logo.png" />
     <Content Include="Content\Images\SBO-icon.jpg" />
+    <Content Include="Content\Images\youtube.png" />
     <Content Include="Content\themes\base\images\ad_next.png" />
     <Content Include="Content\themes\base\images\ad_prev.png" />
     <Content Include="Content\themes\base\images\ad_scroll_back.png" />
@@ -464,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409250327517_AddCategorySequence.resx">
       <DependentUpon>201409250327517_AddCategorySequence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409250405354_AddProductVideosTable.resx">
+      <DependentUpon>201409250405354_AddProductVideosTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

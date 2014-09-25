@@ -259,9 +259,9 @@ C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\System.Web.Provi
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.xml
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServer.xml
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServerCompact.xml
-C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.csprojResolveAssemblyReference.cache
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.dll
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.pdb
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.Migrations.InitialCreate.resources
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.csproj.GenerateResource.Cache
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.Migrations.AddCategorySequence.resources
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.Migrations.AddProductVideosTable.resources

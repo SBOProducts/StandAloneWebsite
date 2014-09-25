@@ -1,5 +1,5 @@
 ﻿@using Customer.Helpers
-@model Customer.Models.Product
+@model Customer.ViewModels.ProductVM
 
 @{
     ViewBag.Title = "Edit";
@@ -47,6 +47,20 @@
 
         @Html.Partial("~/Views/Content/ImageManagerPanel.cshtml", new Customer.Models.ImageUploadModel() { ImageFolder = Model.ImageFolder, ImageSettings = "ProductImages" })
 
+        <br />
+        <h3><img src="@Url.Content("~/Content/Images/YouTube.png")" style="height:32px; margin-right:10px; margin-bottom:-5px;" alt="YouTube Videos" />Add Videos</h3>
+        <p style="font-size:0.9em;">To make up to 3 YouTube videos appear below this product simply paste the Embed code for the YouTube video into to the boxes below. <a href="http://www.youtube.com/watch?v=ZnuwB35GYMY">How to get the Embed code</a></p>
+        <div>
+            @Html.TextBoxFor(m => m.Video1, new { placeholder = "YouTube Video Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video1)<br />
+
+            @Html.TextBoxFor(m => m.Video2, new { placeholder = "YouTube Video  Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video2)<br />
+
+            @Html.TextBoxFor(m => m.Video3, new { placeholder = "YouTube Video  Embed Code" })
+            @Html.ValidationMessageFor(m => m.Video3)<br />
+            
+        </div>
     
         <ul class="button-group">
             <li><input type="submit" value="Save" class="small button" /></li>

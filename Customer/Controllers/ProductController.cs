@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Customer.Models;
 using System.IO;
+using Customer.ViewModels;
 
 namespace Customer.Controllers
 {
@@ -33,6 +34,10 @@ namespace Customer.Controllers
                 // delete the image records
                 foreach (SiteImage image in db.SiteImages.Where(i => i.ImageFolder == model.ImageFolder))
                     db.SiteImages.Remove(image);
+
+                // delete video links
+                foreach (ProductVideo video in db.ProductVideos.Where(v => v.ProductID == Id))
+                    db.ProductVideos.Remove(video);
                 
                 db.SaveChanges();
 
@@ -46,13 +51,14 @@ namespace Customer.Controllers
 
         public ActionResult Create(int category)
         {
-            Product model = new Product() { CategoryID = category };
+            Product product = new Product() { CategoryID = category };
+            ProductVM model = new ProductVM(product);
             return View(model);
         }
 
 
         [HttpPost]
-        public ActionResult Create(Product model)
+        public ActionResult Create(ProductVM model)
         {
             // the image key is the ImageFolder if images are uploaded before the product is created
             string imgkey = Request["imgkey"];
@@ -62,11 +68,16 @@ namespace Customer.Controllers
                 model.ImageFolder = new Guid(imgkey);
                 using (WebContext db = new WebContext())
                 {
-                    db.Products.Add(model);
+                    Product newProduct = model.GetProduct();
+                    db.Products.Add(newProduct);
                     db.SaveChanges();
+                    model.ID = newProduct.ID;
 
                     // create the image folder
                     Directory.CreateDirectory(Server.MapPath("~/Files/" + model.ImageFolder));
+
+                    // attach videos
+                    AddVideos(model);
 
                     // take them to the list of products for the category
                     return RedirectToAction("Details", "Category", new { Id = model.CategoryID });
@@ -76,29 +87,58 @@ namespace Customer.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Adds youtube videos to products if any were provided
+        /// </summary>
+        /// <param name="model"></param>
+        private void AddVideos(ProductVM model)
+        {
+            using (WebContext db = new WebContext())
+            {
+                foreach (string url in model.GetYouTubeUrls)
+                {
+                    ProductVideo video = new ProductVideo() { ProductID = model.ID, YouTubeUrl = url };
+                    db.ProductVideos.Add(video);
+                }
+                db.SaveChanges();
+            }
+        }
+
 
         public ActionResult Edit(int Id)
         {
             using (WebContext db = new WebContext())
             {
-                return View(db.Products.FirstOrDefault(c => c.ID == Id));
+                Product product = db.Products.FirstOrDefault(c => c.ID == Id);
+                List<ProductVideo> videos = db.ProductVideos.Where(v => v.ProductID == Id).ToList();
+                ProductVM model = new ProductVM(product, videos);
+                return View(model);
             }
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Product model)
+        public ActionResult Edit(ProductVM model)
         {
             if (ModelState.IsValid)
             {
                 using (WebContext db = new WebContext())
                 {
-                    db.Products.Add(model);
-                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                    Product product = model.GetProduct();
+                    db.Products.Add(product);
+
+                    // delete out the videos and add them back in
+                    db.ProductVideos.RemoveRange(db.ProductVideos.Where(v => v.ProductID == model.ID));
+
+                    db.Entry(product).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
+
+                    AddVideos(model);
 
                     return RedirectToAction("Details", "Product", new { Id = model.ID });
                 }
+
+                
             }
 
             return View(model);
@@ -107,11 +147,13 @@ namespace Customer.Controllers
 
         public ActionResult Details(int Id)
         {
-                using (WebContext db = new WebContext())
-                {
-                    return View(db.Products.FirstOrDefault(c => c.ID == Id));
-                }
-            
+            using (WebContext db = new WebContext())
+            {
+                Product product = db.Products.FirstOrDefault(c => c.ID == Id);
+                List<ProductVideo> videos = db.ProductVideos.Where(v => v.ProductID == Id).ToList();
+                ProductVM model = new ProductVM(product, videos);
+                return View(model);
+            }
         }
 
 

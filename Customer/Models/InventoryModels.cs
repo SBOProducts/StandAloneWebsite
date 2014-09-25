@@ -102,6 +102,14 @@ namespace Customer.Models
 
     }
 
+    public class ProductVideo
+    {
+        public int ID { get; set; }
+
+        public int ProductID { get; set; }
+
+        public string YouTubeUrl { get; set; }
+    }
 
     public class CategoryPage
     {

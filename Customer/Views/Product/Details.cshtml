@@ -1,4 +1,4 @@
-﻿@model Customer.Models.Product
+﻿@model Customer.ViewModels.ProductVM
 
 @{
     ViewBag.Title = "Product Details";
@@ -27,4 +27,19 @@
         @Html.Partial("~/Views/Content/Orbit.cshtml", new Customer.Models.OrbitSettings() { ImageFolder = Model.ImageFolder, Size=600 })
     </div>
 </div>
+
+@if (Model.HasVideos)
+{
+    foreach (string url in Model.GetYouTubeUrls)
+    {
+        <div class="row" style="padding-top:20px;">
+            <div class="large-12 columns">
+                @Html.Raw(url)
+            </div>
+        </div>
+        
+    }
+}
+
 <p>&nbsp;</p>
+
