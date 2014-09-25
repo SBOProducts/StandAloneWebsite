@@ -44,6 +44,8 @@ namespace Customer.Models
 
         public Guid ContentID { get; set; }
 
+        public int Sequence { get; set; }
+
     }
 
 
