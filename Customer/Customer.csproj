@@ -103,6 +103,15 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\ImageManager.cs" />
     <Compile Include="Helpers\Importer.cs" />
+    <Compile Include="Migrations\201312010230238_InitialCreate.cs" />
+    <Compile Include="Migrations\201312010230238_InitialCreate.Designer.cs">
+      <DependentUpon>201312010230238_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409250327517_AddCategorySequence.cs" />
+    <Compile Include="Migrations\201409250327517_AddCategorySequence.Designer.cs">
+      <DependentUpon>201409250327517_AddCategorySequence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\InventoryModels.cs" />
     <Compile Include="Models\ContentModels.cs" />
@@ -341,7 +350,9 @@
     <Content Include="Scripts\Vendor\custom.modernizr.js" />
     <Content Include="Scripts\Vendor\jquery.js" />
     <Content Include="Scripts\Vendor\zepto.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -376,27 +387,9 @@
     <Content Include="Views\MyAccount\Edit.cshtml" />
     <Content Include="Views\MyAccount\ContactFormPostings.cshtml" />
     <Content Include="Views\Home\BrowerFix.cshtml" />
-    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -464,7 +457,14 @@
     <Content Include="Views\Content\Display.cshtml" />
     <Content Include="Views\MyAccount\Index.cshtml" />
     <Content Include="Views\Help\Codes.cshtml" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201312010230238_InitialCreate.resx">
+      <DependentUpon>201312010230238_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409250327517_AddCategorySequence.resx">
+      <DependentUpon>201409250327517_AddCategorySequence.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -488,7 +488,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50225</DevelopmentServerPort>
+          <DevelopmentServerPort>52592</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

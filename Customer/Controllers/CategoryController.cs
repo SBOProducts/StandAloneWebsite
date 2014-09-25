@@ -177,28 +177,9 @@ namespace Customer.Controllers
                     ViewBag.SelectedCategory = product.CategoryID.ToString();
                 }
 
-                items = db.Categories.ToList();
+                items = db.Categories.OrderBy(c=>c.Sequence).ToList();
             }
-            // return PartialView(items);
-
-            // [2/6/14] sort by KeyWords - this is a hack until db moves to SQL Server
-            Dictionary<int, Category> categories = new Dictionary<int, Category>();
-            foreach (Category category in items)
-            {
-                int seq = Convert.ToInt32(category.KeyWords);
-                if (categories.ContainsKey(seq))
-                {
-                    seq = categories.Last().Key + 1;
-                    category.KeyWords = seq.ToString();
-                }
-
-                categories.Add(seq, category);
-            }
-
-            Category[] sorted = (from d in categories.OrderBy(c => c.Key) select d.Value).ToArray();
-
-            return PartialView(sorted);
-            // end hack
+             return PartialView(items);
         }
 
         [Authorize]
@@ -211,7 +192,7 @@ namespace Customer.Controllers
                 foreach (string id in ids.Split(','))
                 {
                     Category category = db.Categories.Find(Convert.ToInt32(id));
-                    category.KeyWords = sort.ToString();
+                    category.Sequence = sort;
 
                     db.Entry(category).State = System.Data.Entity.EntityState.Modified;
 
