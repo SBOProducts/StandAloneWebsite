@@ -249,3 +249,16 @@ C:\Users\Nathan\Dropbox\Product Website Releases\Capital Trailer & Equipment\Pro
 C:\Users\Nathan\Dropbox\Product Website Releases\Capital Trailer & Equipment\Product Website\Customer\obj\Debug\Customer.csprojResolveAssemblyReference.cache
 C:\Users\Nathan\Dropbox\Product Website Releases\Capital Trailer & Equipment\Product Website\Customer\obj\Debug\Customer.dll
 C:\Users\Nathan\Dropbox\Product Website Releases\Capital Trailer & Equipment\Product Website\Customer\obj\Debug\Customer.pdb
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\Customer.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\Customer.pdb
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServer.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServerCompact.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\System.Data.SqlServerCe.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\System.Web.Providers.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.xml
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServer.xml
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\EntityFramework.SqlServerCompact.xml
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.csprojResolveAssemblyReference.cache
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.pdb
