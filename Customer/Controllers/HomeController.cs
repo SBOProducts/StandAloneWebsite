@@ -27,6 +27,11 @@ namespace Customer.Controllers
             return View();
         }
 
+        public ActionResult Service()
+        {
+            return View();
+        }
+        /*
         public ActionResult BrowerImages()
         {
 
@@ -154,5 +159,6 @@ namespace Customer.Controllers
                 return View(model);
             }
         }
+        */
     }
 }

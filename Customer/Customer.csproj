@@ -466,6 +466,7 @@
     <Content Include="Views\Content\Display.cshtml" />
     <Content Include="Views\MyAccount\Index.cshtml" />
     <Content Include="Views\Help\Codes.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201312010230238_InitialCreate.resx">

@@ -34,7 +34,7 @@
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
-      <h1><a href="@Url.Content("~/")">The Trailer Shop</a></h1>
+      <h1><a href="@Url.Content("~/")">West Coast Trailer Inc.</a></h1>
     </li>
     <li class="toggle-topbar menu-icon">
         <a href="@Url.Content("~/")"><span>Menu</span></a>
@@ -70,7 +70,7 @@
 
 	<div class="row">
         <nav class="large-3 columns">
-            <img id="WebsiteLogo" src="@Url.Content(AccountInfo.LogoImage)" onclick="javascript:location.href='@Url.Content("~/")';" style="cursor:pointer;" />
+            <img id="WebsiteLogo" src="@Url.Content("~/content/images/logos/logo.jpg")" onclick="javascript:location.href='@Url.Content("~/")';" style="cursor:pointer;" />
             <h4 class="show-for-medium-up" style="margin-bottom:0px; padding-bottom:0px; margin-top:10px;">@Html.ActionLink("Inventory", "Index", "Category")</h4>
             <ul id="Inventory" data-url="@Url.Action("Sort","Category")" class="side-nav show-for-medium-up" style="padding-top:0px;">
               @{Html.RenderAction("MenuItems", "Category");}
