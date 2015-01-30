@@ -299,7 +299,11 @@ namespace Customer.Controllers
             using (WebContext db = new WebContext())
             {
                 db.HtmlContent.Add(model);
-                db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                if (db.HtmlContent.Count(m => m.ID == model.ID) == 1)
+                    db.Entry(model).State = System.Data.Entity.EntityState.Modified;
+                else
+                    db.Entry(model).State = System.Data.Entity.EntityState.Added;
+
                 db.SaveChanges();
 
                 // clear deleted files

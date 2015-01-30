@@ -265,3 +265,5 @@ C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.M
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.csproj.GenerateResource.Cache
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.Migrations.AddCategorySequence.resources
 C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\obj\Debug\Customer.Migrations.AddProductVideosTable.resources
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\System.Web.Mvc.dll
+C:\Users\Nathan\Documents\GitHub\StandAloneWebsite\Customer\bin\System.Web.Mvc.xml

@@ -109,7 +109,11 @@ namespace Customer.Controllers
                         db.SiteImages.Remove(image);
 
                     // delete the images
-                    Directory.Delete(Server.MapPath("~/Files/" + product.ImageFolder), true);
+                    try
+                    {
+                        Directory.Delete(Server.MapPath("~/Files/" + product.ImageFolder), true);
+                    }
+                    catch { }
 
                 }
 
